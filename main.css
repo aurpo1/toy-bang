@@ -218,15 +218,18 @@ header .header_icon .search img {
 }
 
 .history .history_sliderlist {
-  /* width: 308px; */
-  border: 1px solid red;
+  width: 308px;
   height: 49px;
   display: flex;
-  margin: 23px 37px 8px 30px;
+  overflow: scroll;
+  margin: 23px 37px 16px 30px;
+}
+
+.history .history_sliderlist::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 
 .history .history_sliderlist .histroy_sliderlist-item {
-  border: 1px solid royalblue;
   width: 162px;
   height: 47px;
   border-radius: 6px;
@@ -235,23 +238,21 @@ header .header_icon .search img {
   color: #fff;
   margin-right: 13px;
   padding: 5px 0 7px 13px;
+  flex: 0 0 auto; 
 }
 
 .history .history_sliderlist .history_sliderlist-btn {
-  width: 180px;
-  border: 1px solid red;
+  width: 100px;
   display: flex;
   align-items: center;
   font-size: 12px;
   color: #FF5F00;
+  flex: 0 0 auto;
 }
-
-
 
 .history .history_detail {
   width: 302px;
-  margin: 16px 37px 38px 36px;
-
+  margin: 0px 37px 38px 36px;
 }
 
 .history .history_detail .history_detail-header {

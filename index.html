@@ -16,103 +16,201 @@
   </head>
   <body>
     <main>
-      <div class="swiper">
-        <div class="swiper-wrap">
-          <!-- header -->
-          <header>
-            <div class="header_profile">
-              <img src="./images/yeseo.png" alt="avatar_main">
-            </div>
-            <div class="header_title">생활비</div>
-            <div class="header_icon">
-              <div class="qr">
-                <img src="./images/icon_qr.svg" alt="icon_qr">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <!-- header -->
+            <header>
+              <div class="header_profile">
+                <img src="./images/yeseo.png" alt="avatar_main">
               </div>
-              <div class="search">
-                <img src="./images/icon_search.svg" alt="icon_search">
+              <div class="header_title">생활비</div>
+              <div class="header_icon">
+                <div class="qr">
+                  <img src="./images/icon_qr.svg" alt="icon_qr">
+                </div>
+                <div class="search">
+                  <img src="./images/icon_search.svg" alt="icon_search">
+                </div>
               </div>
-            </div>
-          </header>
-          <!--section - account-->
-          <section class="account">
-            <div class="account_list">
-              <div class="account_id">
-                <div class="account_number">355-673877-78773</div>
-                <button class="account_btn">이체</button>
+            </header>
+            <!--section - account-->
+            <section class="account">
+              <div class="account_list">
+                <div class="account_id">
+                  <div class="account_number">355-673877-78773</div>
+                  <button class="account_btn">이체</button>
+                </div>
+                <div class="account_money">
+                  <span class="money">1,240,000</span>
+                  <span>원</span>
+                </div>
+                <div class="account_stats">
+                  <input type="range" />
+                  <button class="account_stats-btn">
+                    <img src="./images/icon_chart.svg" alt="icon_chart">
+                  </button>
+                </div>
+                <div class="account_msg">5일동안 210,000원 남음</div>
               </div>
-              <div class="account_money">
-                <span class="money">1,240,000</span>
-                <span>원</span>
+              <span class="account_banner">
+                지금 낮은 이자로 생활대출을 신청하세요!
+                <a href="javascript::void(0)">Go</a>
+              </span>
+            </section>
+            <!-- section - history -->
+            <section class="history">
+              <div class="history_detail-bar"></div>
+              <!--추후 결정-->
+              <div class="history_sliderlist">
+                <div class="histroy_sliderlist-item">
+                  <div class="item-name">여행가자!</div>
+                  <div class="item-goal">842,200원</div>
+                </div>
+                <div class="histroy_sliderlist-item">
+                  <div class="item-name">여행가자!</div>
+                  <div class="item-goal">842,200원</div>
+                </div>
+                <button class="history_sliderlist-btn">
+                  <img src="./images/icon_makeitem.svg" alt="icon_makeitem">
+                  저금통 만들기</button>
               </div>
-              <div class="account_stats">
-                <input type="range" />
-                <button class="account_stats-btn">
-                  <img src="./images/icon_chart.svg" alt="icon_chart">
-                </button>
+              <div class="history_detail">
+                <div class="history_detail-header">
+                  <span>오늘</span><span>27,600원 지출</span>
+                </div>
+                <ul class="history_detail-list">
+                  <!--li 들어갈 자리-->
+                  <li>
+                    <span>CU</span>
+                    <span>1,000</span>
+                  </li>
+                  <li>
+                    <span>김경남</span>
+                    <span>+ 20,000</span>
+                  </li>
+                  <li>
+                    <span>김경남</span>
+                    <span>+ 20,000</span>
+                  </li>
+                </ul>
               </div>
-              <div class="account_msg">5일동안 210,000원 남음</div>
-            </div>
-            <span class="account_banner">
-              지금 낮은 이자로 생활대출을 신청하세요!
-              <a href="javascript::void(0)">Go</a>
-            </span>
-          </section>
-          <!-- section - history -->
-          <section class="history">
-            <div class="history_detail-bar"></div>
-            <!--추후 결정-->
-            <div class="history_sliderlist">
-              <div class="histroy_sliderlist-item">
-                <div class="item-name">여행가자!</div>
-                <div class="item-goal">842,200원</div>
+              <div class="history_detail">
+                <div class="history_detail-header">
+                  <span>어제</span><span>27,600원 지출</span>
+                </div>
+                <ul class="history_detail-list">
+                  <!--li 들어갈 자리-->
+                  <li>
+                    <span>CU</span>
+                    <span>7,000</span>
+                  </li>
+                  <li>
+                    <span>김영희</span>
+                    <span>+ 40,000</span>
+                  </li>
+                </ul>
               </div>
-              <div class="histroy_sliderlist-item">
-                <div class="item-name">여행가자!</div>
-                <div class="item-goal">842,200원</div>
+            </section>
+          </div>
+          <div class="swiper-slide">
+             <!-- header -->
+            <header>
+              <div class="header_profile">
+                <img src="./images/yeseo.png" alt="avatar_main">
               </div>
-              <button class="history_sliderlist-btn">
-                <img src="./images/icon_makeitem.svg" alt="icon_makeitem">
-                저금통 만들기</button>
-            </div>
-            <div class="history_detail">
-              <div class="history_detail-header">
-                <span>오늘</span><span>27,600원 지출</span>
+              <div class="header_title">생활비</div>
+              <div class="header_icon">
+                <div class="qr">
+                  <img src="./images/icon_qr.svg" alt="icon_qr">
+                </div>
+                <div class="search">
+                  <img src="./images/icon_search.svg" alt="icon_search">
+                </div>
               </div>
-              <ul class="history_detail-list">
-                <!--li 들어갈 자리-->
-                <li>
-                  <span>CU</span>
-                  <span>1,000</span>
-                </li>
-                <li>
-                  <span>김경남</span>
-                  <span>+ 20,000</span>
-                </li>
-                <li>
-                  <span>김경남</span>
-                  <span>+ 20,000</span>
-                </li>
-              </ul>
-            </div>
-            <div class="history_detail">
-              <div class="history_detail-header">
-                <span>어제</span><span>27,600원 지출</span>
+            </header>
+            <!--section - account-->
+            <section class="account">
+              <div class="account_list">
+                <div class="account_id">
+                  <div class="account_number">355-673877-78773</div>
+                  <button class="account_btn">이체</button>
+                </div>
+                <div class="account_money">
+                  <span class="money">1,240,000</span>
+                  <span>원</span>
+                </div>
+                <div class="account_stats">
+                  <input type="range" />
+                  <button class="account_stats-btn">
+                    <img src="./images/icon_chart.svg" alt="icon_chart">
+                  </button>
+                </div>
+                <div class="account_msg">5일동안 210,000원 남음</div>
               </div>
-              <ul class="history_detail-list">
-                <!--li 들어갈 자리-->
-                <li>
-                  <span>CU</span>
-                  <span>7,000</span>
-                </li>
-                <li>
-                  <span>김영희</span>
-                  <span>+ 40,000</span>
-                </li>
-              </ul>
-            </div>
-          </section>
+              <span class="account_banner">
+                지금 낮은 이자로 생활대출을 신청하세요!
+                <a href="javascript::void(0)">Go</a>
+              </span>
+            </section>
+            <!-- section - history -->
+            <section class="history">
+              <div class="history_detail-bar"></div>
+              <!--추후 결정-->
+              <div class="history_sliderlist">
+                <div class="histroy_sliderlist-item">
+                  <div class="item-name">여행가자!</div>
+                  <div class="item-goal">842,200원</div>
+                </div>
+                <div class="histroy_sliderlist-item">
+                  <div class="item-name">여행가자!</div>
+                  <div class="item-goal">842,200원</div>
+                </div>
+                <button class="history_sliderlist-btn">
+                  <img src="./images/icon_makeitem.svg" alt="icon_makeitem">
+                  저금통 만들기</button>
+              </div>
+              <div class="history_detail">
+                <div class="history_detail-header">
+                  <span>오늘</span><span>27,600원 지출</span>
+                </div>
+                <ul class="history_detail-list">
+                  <!--li 들어갈 자리-->
+                  <li>
+                    <span>CU</span>
+                    <span>1,000</span>
+                  </li>
+                  <li>
+                    <span>김경남</span>
+                    <span>+ 20,000</span>
+                  </li>
+                  <li>
+                    <span>김경남</span>
+                    <span>+ 20,000</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="history_detail">
+                <div class="history_detail-header">
+                  <span>어제</span><span>27,600원 지출</span>
+                </div>
+                <ul class="history_detail-list">
+                  <!--li 들어갈 자리-->
+                  <li>
+                    <span>CU</span>
+                    <span>7,000</span>
+                  </li>
+                  <li>
+                    <span>김영희</span>
+                    <span>+ 40,000</span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
         
         </div>
+        <div class="swiper-pagination"></div>
       </div>
       <!-- 지출 관리 -->
       <div class="expense">
