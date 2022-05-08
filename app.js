@@ -1,12 +1,17 @@
-  // core version + navigation, pagination modules:
-  // import Swiper, { Navigation, Pagination } from 'swiper';
 
-  console.log('ok');
+console.log('ok');
 
-  const swiper = new Swiper('.mySwiper', {
-    pagination: {
-      el: ".swiper-pagination",
-    },
-   });
+const swiper = new Swiper('.mySwiper', {
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  });
 
-  let itemSwiper = new Swiper('.history_sliderlist', {});
+console.log(swiper);
+let itemSwiper = new Swiper('.history_sliderlist', {});
+console.log(itemSwiper);
+
+
+// Chart
+
+const 

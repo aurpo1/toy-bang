@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="main.css">
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
@@ -68,8 +69,8 @@
                   <div class="item-goal">842,200원</div>
                 </div>
                 <div class="histroy_sliderlist-item">
-                  <div class="item-name">여행가자!</div>
-                  <div class="item-goal">842,200원</div>
+                  <div class="item-name">냉장고 사기</div>
+                  <div class="item-goal">142,200원</div>
                 </div>
                 <button class="history_sliderlist-btn">
                   <img src="./images/icon_makeitem.svg" alt="icon_makeitem">
@@ -113,13 +114,14 @@
               </div>
             </section>
           </div>
+
           <div class="swiper-slide">
              <!-- header -->
             <header>
               <div class="header_profile">
                 <img src="./images/yeseo.png" alt="avatar_main">
               </div>
-              <div class="header_title">생활비</div>
+              <div class="header_title">의민이 용돈</div>
               <div class="header_icon">
                 <div class="qr">
                   <img src="./images/icon_qr.svg" alt="icon_qr">
@@ -214,29 +216,35 @@
       </div>
       <!-- 지출 관리 -->
       <div class="expense">
-        <button>닫기</button>
+        <button class="close-btn">닫기</button>
         <h2>지출 관리</h2>
-        <div class="expense_range">
-          <div class="expense_range-label">
-            <div>기준금액설정</div>
-            <strong>2,100,000원</strong>
+        <div class="chart">
+          <div class="expense_range">
+            <div class="expense_range-label">
+              <div>기준금액설정</div>
+              <strong>2,100,000원</strong>
+            </div>
+            <input type="range" />
           </div>
-          <input type="range" />
-        </div>
-        <div class="expense_report">
-          <img />
-        </div>
-        <div class="expense_pattern">
-          <img />
-          <ul class="expense_pattern-list">
-            <!-- chart.js 적용 후 논의 -->
-            <li></li>
-          </ul>
+          <div class="expense_report">
+            일간 리포트<br><br><br><br><br><br><br><br><br><br><br>
+            
+            <img />
+          </div>
+          <div class="expense_pattern">
+            6월 지출 패턴<br><br><br><br><br><br><br><br><br><br><br><br>
+            
+            <img />
+            <ul class="expense_pattern-list">
+              <!-- chart.js 적용 후 논의 -->
+              <li></li>
+            </ul>
+          </div>
         </div>
       </div>
       <!--이체-->
       <div class="transfer">
-        <button>닫기</button>
+        <button class="close-btn">취소</button>
         <h2>이체</h2>
         <button>직접 이체</button>
         <div class="transfer_list">
