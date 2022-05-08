@@ -347,6 +347,7 @@ header .header_icon .search img {
 }
 
 .expense .expense_range {
+
 }
 
 .expense .expense_range .expense_range-label {
@@ -378,7 +379,17 @@ header .header_icon .search img {
 }
 
 .expense .chart .expense_report {
+  overflow: scroll;
+  border: 1px solid red;
+  margin-top: 59px;
+}
 
+.expense .chart .expense_report::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.expense .chart .expense_report .myChart {
+  overflow: scroll;
 }
 
 .expense .chart .expense_report img {
@@ -386,7 +397,7 @@ header .header_icon .search img {
 }
 
 .expense .chart .expense_pattern {
-
+  margin-top: 46px;
 }
 
 .expense .chart .expense_pattern img {
