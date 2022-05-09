@@ -14,14 +14,14 @@ console.log(itemSwiper);
 
 // Chart
 
-const labels = [ //x축
+const dailyLabels = [ //x축
   '02', '04', '06', '08', '10',
   '12', '14', '16', '18', '20',
   '22', '24', '26', '28', '30'
 ];
 
-const data = {
-  labels: labels,
+const dailyData = {
+  labels: dailyLabels,
   datasets: [{
     type: 'bar',
     label: 'daily bar report',
@@ -47,9 +47,9 @@ const data = {
   }],
 };
 
-const config = {
+const dailyConfig = {
   type: 'bar',
-  data: data,
+  data: dailyData,
   options: {
     responsive: false,
     plugins: {
@@ -79,7 +79,7 @@ const config = {
 
 const dailyChart = new Chart(
   document.getElementById('dailyChart').getContext('2d'),
-  config
+  dailyConfig
 );
 
 
