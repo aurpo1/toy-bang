@@ -327,19 +327,19 @@ header .header_icon .search img {
   /* display: none; */
   width: 375px;
   height: 692px;
-  background-color: rosybrown;
   position: absolute;
   /* padding: 69px 0 0 29px; */
   font-size: 18px;
   color: #444;
+  border: 1px solid black;
+  overflow: hidden;
 }
 
 .expense .chart {
   overflow-y: scroll;
   height: 623px;
   width: 375px;
-  margin-top: 69px;
-  padding: 29px 0 0 29px;
+  margin: 98px 0 0 29px;
 }
 
 .expense .chart::-webkit-scrollbar {
@@ -379,17 +379,21 @@ header .header_icon .search img {
 }
 
 .expense .chart .expense_report {
-  overflow: scroll;
-  border: 1px solid red;
   margin-top: 59px;
 }
 
-.expense .chart .expense_report::-webkit-scrollbar {
+.expense .chart .expense_report .canvas-wrapper {
+  margin-top: 17px;
+  overflow-x: scroll;
+}
+
+.expense .chart .expense_report .canvas-wrapper::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
 }
 
-.expense .chart .expense_report .myChart {
-  overflow: scroll;
+.expense .chart .expense_report #dailyChart {
+  width: 462px;
+  height: 198px;
 }
 
 .expense .chart .expense_report img {
