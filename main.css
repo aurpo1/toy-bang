@@ -423,7 +423,7 @@ header .header_icon .search img {
   display: none; /* Chrome, Safari, Opera */
 }
 
-.expense .chart .expense_pattern .canvas-wrapper.pattern p {
+.expense .chart .expense_pattern .canvas-wrapper.pattern > p {
   font-size: 24px;
   font-weight: 500;
   /* temp */
@@ -436,8 +436,24 @@ header .header_icon .search img {
   font-weight: 400;
 }
 
-.expense .chart .expense_pattern .expense_pattern-list li {
+.expense .chart .expense_pattern .expense_pattern-list > li {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
 
+.expense .chart .expense_pattern .expense_pattern-list > li > strong {
+
+}
+
+.expense .chart .expense_pattern .expense_pattern-list > li > p {
+  color: #858585;
+}
+
+.expense .chart .expense_pattern .expense_pattern-list::after {
+  content: ' ';
+  display: block;
+  height: 76px;
 }
 
 /* TRANSFER */

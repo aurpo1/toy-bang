@@ -75,18 +75,56 @@ const dailyChart = new Chart(
   dailyConfig
 );
 
+let patternData = [
+  ['주유비', '건강관리비', '외식비', '장보기', '상점'],
+  [56000, 80000, 233000, 390000, 46000]
+]
+
+let patternData1 = [{
+  'name': '주유비',
+  'price': 56000
+  },
+  {
+    'name': '건강관리비',
+    'price': 80000
+  },
+  {
+    'name': '외식비',
+    'price': 233000
+  },
+  {
+    'name': '장보기',
+    'price': 390000
+  },
+  {
+    'name': '상점',
+    'price': 46000
+  }]
+
+const patternListEl = document.querySelector('.expense_pattern-list');
+
+for (let i=0; i<patternData1.length; i++) {
+  const patternLi = document.createElement('li');
+
+  const itemName = document.createElement('strong');
+  itemName.textContent = patternData1[i].name;
+
+  const itemPrice = document.createElement('p');
+  itemPrice.textContent = patternData1[i].price;
+
+  patternLi.appendChild(itemName);
+  patternLi.appendChild(itemPrice);
+
+  patternListEl.appendChild(patternLi);
+}
+
+console.log(patternListEl);
 
 const doughnutLabel = {
-  labels: [
-    '주유비',
-    '건강관리비',
-    '외식비',
-    '장보기',
-    '상점'
-  ],
+  labels: patternData[0],
   datasets: [{
     label: 'expense pattern chart',
-    data: [56000, 80000, 233000, 390000, 46000],
+    data: patternData[1],
     backgroundColor: [
       '#BD5B00',
       '#0057BD',
@@ -117,6 +155,9 @@ const doughnutChart = new Chart(
   document.getElementById('doughnutChart').getContext('2d'),
   doughnutConfig
 );
+
+
+// expense click
 
 const expenseEl = document.querySelector('.expense');
 const expenseBtn = document.querySelector('.account_stats-btn');
