@@ -3,9 +3,8 @@ console.log('ok');
 
 const swiper = new Swiper('.mySwiper', {});
 
-console.log(swiper);
 let itemSwiper = new Swiper('.history_sliderlist', {});
-console.log(itemSwiper);
+
 
 
 // Chart
@@ -118,3 +117,15 @@ const doughnutChart = new Chart(
   document.getElementById('doughnutChart').getContext('2d'),
   doughnutConfig
 );
+
+const expenseEl = document.querySelector('.expense');
+const expenseBtn = document.querySelector('.account_stats-btn');
+const closeBtn = document.querySelector('.close-btn');
+
+expenseBtn.addEventListener('click', () => {
+  expenseEl.classList.add('up');
+})
+
+closeBtn.addEventListener('click', () => {
+  expenseEl.classList.remove('up');
+})

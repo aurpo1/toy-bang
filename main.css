@@ -324,14 +324,22 @@ header .header_icon .search img {
 /* EXPENSE */
 
 .expense {
-  /* display: none; */
   width: 375px;
-  /* height: 692px; */
+  height: 76px;
   position: absolute;
+  background-color: #fff;
   font-size: 18px;
   color: #444;
-  border: 1px solid black;
   overflow: hidden;
+  z-index: 1;
+  bottom: 0;
+  transition: all .3s ease-out;
+}
+
+.expense.up {
+  display: block;
+  height: 756px;
+  transition: all .3s ease-out;
 }
 
 .expense::-webkit-scrollbar {
