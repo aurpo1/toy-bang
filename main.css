@@ -463,14 +463,82 @@ header .header_icon .search img {
 /* TRANSFER */
 
 .transfer {
-  display: none;
   width: 375px;
-  height: 692px;
-  background-color: royalblue;
+  height: 76px;
+  background-color: #fff;
   position: absolute;
-  /* padding-top: 61px; */
+  overflow: hidden;
+  z-index: 1;
+  bottom: 0;
+  transition: all .3s ease-out;
 }
 
+.transfer.up {
+  height: 756px;
+  transition: all .3s ease-out;
+}
+
+.transfer .direct-btn {
+  width: 317px;
+  height: 47px;
+  border: 1px solid #858585;
+  border-radius: 4px;
+  margin: 102px 29px 0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.transfer .transfer_list {
+  margin: 44px 31px 0 29px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.transfer .transfer_list {
+  position: relative;
+}
+
+.transfer .transfer_list > li {
+  display: flex;
+  height: 54px;
+  margin-bottom: 17px;
+  position: relative;
+}
+
+.transfer .transfer_list > li .peopleImg {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+}
+
+.transfer .transfer_list > li .info {
+  position: absolute;
+  left: 54px;
+  margin-left: 17px;
+}
+.transfer .transfer_list > li .info .name {
+  font-size: 18px;
+}
+
+.transfer .transfer_list > li .info .accountNum {
+
+}
+
+.transfer .transfer_list > li .icon {
+  position: absolute;
+  right: 0;
+  top: 14px;
+}
+
+.transfer .transfer_numberpad {
+
+}
+
+.transfer .transfer_msg {
+  display: none;
+}
 
 /* NAVIGATION */
 

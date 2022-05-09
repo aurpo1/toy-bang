@@ -156,21 +156,6 @@ const doughnutChart = new Chart(
   doughnutConfig
 );
 
-
-// expense click
-
-const expenseEl = document.querySelector('.expense');
-const expenseBtn = document.querySelector('.account_stats-btn');
-const closeBtn = document.querySelector('.close-btn');
-
-expenseBtn.addEventListener('click', () => {
-  expenseEl.classList.add('up');
-})
-
-closeBtn.addEventListener('click', () => {
-  expenseEl.classList.remove('up');
-})
-
 // history detail
 
 const historyEl = document.querySelector('.history');
@@ -180,6 +165,36 @@ const histroyDetailEl = document.querySelector('.history .history_details');
 historyBarEl.addEventListener('click', () => {
   historyEl.classList.toggle('up');
   histroyDetailEl.classList.toggle('up');
+})
+
+
+// expense click
+
+const expenseEl = document.querySelector('.expense');
+const expenseBtn = document.querySelector('.account_stats-btn');
+// [0] is expense close, [1] is transfer close
+const closeBtn = document.querySelectorAll('.close-btn');
+
+expenseBtn.addEventListener('click', () => {
+  expenseEl.classList.add('up');
+})
+
+closeBtn[0].addEventListener('click', () => {
+  expenseEl.classList.remove('up');
+})
+
+
+// transfer click
+
+const transferEl = document.querySelector('.transfer');
+const transferBtnEl = document.querySelector('.account_btn');
+
+transferBtnEl.addEventListener('click', () => {
+  transferEl.classList.add('up');
+})
+
+closeBtn[1].addEventListener('click', () => {
+  transferEl.classList.remove('up');
 })
 
 
