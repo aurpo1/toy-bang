@@ -1,14 +1,12 @@
-
-console.log('ok');
+//swiper
 
 const swiper = new Swiper('.mySwiper', {});
 
 let itemSwiper = new Swiper('.history_sliderlist', {});
 
 
-
 // Chart
-
+// daily chart
 const dailyLabels = [ //x축
   '02', '04', '06', '08', '10',
   '12', '14', '16', '18', '20',
@@ -74,6 +72,8 @@ const dailyChart = new Chart(
   document.getElementById('dailyChart').getContext('2d'),
   dailyConfig
 );
+
+// pattern chart
 
 let patternData = [
   ['주유비', '건강관리비', '외식비', '장보기', '상점'],
@@ -170,3 +170,66 @@ expenseBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
   expenseEl.classList.remove('up');
 })
+
+// history detail
+
+const historyEl = document.querySelector('.history');
+const historyBarEl = document.querySelector('.history_detail-bar');
+const histroyDetailEl = document.querySelector('.history .history_details');
+
+historyBarEl.addEventListener('click', () => {
+  historyEl.classList.toggle('up');
+  histroyDetailEl.classList.toggle('up');
+})
+
+
+// json
+
+fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05-4ad8-ad1b-ecdf5d06e7c6/banking.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220509%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220509T123851Z&X-Amz-Expires=86400&X-Amz-Signature=0145c6d25abbb1a75eed090778e0148190b54670f8e26913a4b1f36ce14fb559&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22banking.json%22&x-id=GetObject')
+.then( res => {
+  //받은 애를 json화 시키고 걔를 그 다음 리턴
+  //그 다음 then에게
+  return res.json();
+})
+.then( obj => {
+  console.log(obj);
+  historyData(obj);
+})
+
+function historyData(obj) {
+  console.log(obj.bankList[0].history);
+}
+
+
+// test
+fetch('https://eulsoo.github.io/list.json')
+.then( res => {
+  //받은 애를 json화 시키고 걔를 그 다음 리턴
+  //그 다음 then에게
+  return res.json();
+})
+.then( obj => {
+  todo(obj);
+})
+
+function todo(obj) {
+const ulEl = document.querySelector('.history_detail-list');
+for (let i=0; i < obj.length; i++) {
+  //li 만들기
+  //item vaule 가져오기
+  //li = item 넣기
+  //ul에 붙이기
+  const lili = document.createElement('li');
+
+  const strongItem = document.createElement('strong');
+  strongItem.textContent = obj[i].item;
+
+  const price = document.createElement('span');
+  price.textContent = obj[i].price;
+
+  lili.appendChild(strongItem);
+  lili.appendChild(price);
+  ulEl.appendChild(lili);
+}
+
+};

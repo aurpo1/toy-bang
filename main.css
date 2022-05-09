@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
 html,
 body {
   height: 100%;
@@ -230,6 +234,12 @@ header .header_icon .search img {
   bottom: 76px;
   border-radius: 30px 30px 0 0 ;
   box-shadow: 0px -5px 14px rgba(189, 144, 28, 0.08);
+  transition: all .3s ease-out;
+}
+
+.history.up {
+  height: 637px;
+  transition: all .3s ease-out;
 }
 
 .history .history_detail-bar {
@@ -246,12 +256,8 @@ header .header_icon .search img {
   width: 308px;
   height: 49px;
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
   margin: 23px 37px 16px 30px;
-}
-
-.history .history_sliderlist::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
 }
 
 .history .history_sliderlist .histroy_sliderlist-item {
@@ -281,6 +287,20 @@ header .header_icon .search img {
   font-size: 12px;
   color: #FF5F00;
   flex: 0 0 auto;
+}
+
+.history .history_details {
+  overflow-y: scroll;
+  /* temp */
+  height: 295px;
+  transition: all .3s ease-out;
+}
+
+/* temp */
+.history .history_details.up {
+  overflow-y: scroll;
+  height: 548px;
+  transition: all .3s ease-out;
 }
 
 .history .history_detail {
@@ -342,10 +362,6 @@ header .header_icon .search img {
   transition: all .3s ease-out;
 }
 
-.expense::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
-}
-
 .expense .chart {
   overflow-y: scroll;
   height: 623px;
@@ -353,10 +369,6 @@ header .header_icon .search img {
   margin: 98px 0 0 29px;
   font-weight: 500;
   color: #444;
-}
-
-.expense .chart::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
 }
 
 .expense .expense_range {
@@ -400,10 +412,6 @@ header .header_icon .search img {
   overflow-x: scroll;
 }
 
-.expense .chart .expense_report .canvas-wrapper::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
-}
-
 .expense .chart .expense_report #dailyChart {
 
 }
@@ -417,10 +425,6 @@ header .header_icon .search img {
   width: 308px;
   /* temp */
   position: relative;
-}
-
-.expense .chart .expense_pattern .canvas-wrapper.pattern::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
 }
 
 .expense .chart .expense_pattern .canvas-wrapper.pattern > p {
