@@ -326,13 +326,16 @@ header .header_icon .search img {
 .expense {
   /* display: none; */
   width: 375px;
-  height: 692px;
+  /* height: 692px; */
   position: absolute;
-  /* padding: 69px 0 0 29px; */
   font-size: 18px;
   color: #444;
   border: 1px solid black;
   overflow: hidden;
+}
+
+.expense::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 
 .expense .chart {
@@ -340,6 +343,8 @@ header .header_icon .search img {
   height: 623px;
   width: 375px;
   margin: 98px 0 0 29px;
+  font-weight: 500;
+  color: #444;
 }
 
 .expense .chart::-webkit-scrollbar {
@@ -382,7 +387,7 @@ header .header_icon .search img {
   margin-top: 59px;
 }
 
-.expense .chart .expense_report .canvas-wrapper {
+.expense .chart .expense_report .canvas-wrapper.daily {
   margin-top: 17px;
   overflow-x: scroll;
 }
@@ -395,20 +400,32 @@ header .header_icon .search img {
 
 }
 
-.expense .chart .expense_report img {
-
-}
-
 .expense .chart .expense_pattern {
   margin-top: 46px;
 }
 
-.expense .chart .expense_pattern img {
+.expense .chart .expense_pattern .canvas-wrapper.pattern {
+  margin-top: 18px;
+  width: 308px;
+  /* temp */
+  position: relative;
+}
 
+.expense .chart .expense_pattern .canvas-wrapper.pattern::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.expense .chart .expense_pattern .canvas-wrapper.pattern p {
+  font-size: 24px;
+  font-weight: 500;
+  /* temp */
+  position: absolute;
+  top: 135px;
+  left: 85px;
 }
 
 .expense .chart .expense_pattern .expense_pattern-list {
-
+  font-weight: 400;
 }
 
 .expense .chart .expense_pattern .expense_pattern-list li {

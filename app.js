@@ -1,11 +1,7 @@
 
 console.log('ok');
 
-const swiper = new Swiper('.mySwiper', {
-  pagination: {
-    el: ".swiper-pagination",
-  },
-  });
+const swiper = new Swiper('.mySwiper', {});
 
 console.log(swiper);
 let itemSwiper = new Swiper('.history_sliderlist', {});
@@ -51,7 +47,7 @@ const dailyConfig = {
   type: 'bar',
   data: dailyData,
   options: {
-    responsive: false,
+    responsive: false, //크기 조절할 수 있게
     plugins: {
       legend: {
         display: false, //label 숨기기
@@ -59,13 +55,11 @@ const dailyConfig = {
     },
     scales: {
       x: {
-        base: 20000,
         grid: {
           display: false,
         }
       },
       y: {
-        min: 20000,
         grid: {
           borderDash: [5, 5],
         },
@@ -83,3 +77,44 @@ const dailyChart = new Chart(
 );
 
 
+const doughnutLabel = {
+  labels: [
+    '주유비',
+    '건강관리비',
+    '외식비',
+    '장보기',
+    '상점'
+  ],
+  datasets: [{
+    label: 'expense pattern chart',
+    data: [56000, 80000, 233000, 390000, 46000],
+    backgroundColor: [
+      '#BD5B00',
+      '#0057BD',
+      '#00BDB2',
+      '#FEC229',
+      '#C4C4C4'
+    ],
+    hoverOffset: 4,
+    borderWidth: 0,
+  }]
+};
+
+const doughnutConfig = {
+  type: 'doughnut',
+  data: doughnutLabel,
+  options: {
+    cutout: 120, // 도넛 내부 원의 크기
+    responsive: false,
+    plugins: {
+      legend: {
+        display: false, //label 숨기기
+      },
+    },
+  }
+};
+
+const doughnutChart = new Chart(
+  document.getElementById('doughnutChart').getContext('2d'),
+  doughnutConfig
+);
