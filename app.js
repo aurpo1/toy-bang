@@ -198,7 +198,7 @@ closeBtn[1].addEventListener('click', () => {
 
 // json
 
-fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05-4ad8-ad1b-ecdf5d06e7c6/banking.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220509%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220509T123851Z&X-Amz-Expires=86400&X-Amz-Signature=0145c6d25abbb1a75eed090778e0148190b54670f8e26913a4b1f36ce14fb559&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22banking.json%22&x-id=GetObject')
+fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05-4ad8-ad1b-ecdf5d06e7c6/banking.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220510T163431Z&X-Amz-Expires=86400&X-Amz-Signature=2219cb0871e19a03551dd64c3c58926cb00ec8dcbcef7faf71f0ac092215ace5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22banking.json%22&x-id=GetObject')
 .then( res => {
   // 받은 애를 json화 시키고 걔를 그 다음 리턴
   //그 다음 then에게
