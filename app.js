@@ -234,13 +234,16 @@ function historyData(obj) {
     newDetailHeadEl.classList.add('history_detail-header');
 
     const newSpanEl = document.createElement('span');
+    const newSumEl = document.createElement('span');
 
     const newDetailLiEl = document.createElement('ul');
     newDetailLiEl.classList.add('history_detail-list');
 
-    for (let j=0; j < isPast.length; j++) {
+    // 하루 총 지출
+    let daySum = 0;
 
-      // history_detail-header
+    for (let j=0; j < isPast.length; j++) {
+      // history_detail-header-day
       if (i == 0) {
         newSpanEl.textContent = "오늘";
         newDetailHeadEl.appendChild(newSpanEl);
@@ -253,6 +256,15 @@ function historyData(obj) {
       } else {
         newSpanEl.textContent = isPast[j].date;
         newDetailHeadEl.appendChild(newSpanEl);
+      }
+      
+      // history_detail-header-sum
+      if (isPast[j].income === 'out') {
+        daySum += isPast[j].price;
+      }
+      if (j == (isPast.length-1)) {
+        newSumEl.textContent = `${daySum.toLocaleString()}원 지출`;
+        newDetailHeadEl.appendChild(newSumEl);
       }
 
       // history_detail-list
