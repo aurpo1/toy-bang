@@ -118,8 +118,6 @@ for (let i=0; i<patternData1.length; i++) {
   patternListEl.appendChild(patternLi);
 }
 
-console.log(patternListEl);
-
 const doughnutLabel = {
   labels: patternData[0],
   datasets: [{
@@ -159,8 +157,8 @@ const doughnutChart = new Chart(
 // history detail
 
 const historyEl = document.querySelector('.history');
-const historyBarEl = document.querySelector('.history_detail-bar');
-const histroyDetailEl = document.querySelector('.history .history_details');
+const historyBarEl = historyEl.querySelector('.history_detail-bar');
+const histroyDetailEl = historyEl.querySelector('.history_details');
 
 historyBarEl.addEventListener('click', () => {
   historyEl.classList.toggle('up');
@@ -207,44 +205,112 @@ fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05
   return res.json();
 })
 .then( obj => {
-  console.log(obj);
+  // console.log(obj);
   historyData(obj);
 })
 
 function historyData(obj) {
-  console.log(obj.bankList[0].history);
+  const detailData = obj.bankList;
+
+  // 오늘 날짜
+  const today = new Date();
+  const tt = today.toISOString().substring(0,10);
+
+  for (let i=0; i<today.getDate(); i++) {
+    const tempToday = new Date();
+    let past = new Date(tempToday.setDate(tempToday.getDate() - i));
+    past = past.toISOString().substring(0,10);
+
+    // 오늘 기준으로 과거 내역의 객체 데이터
+    let isPast = detailData.filter((date) => {
+      return date.date == past;
+    });
+
+    const newDetailEl = document.createElement('div');
+    newDetailEl.classList.add('history_detail')
+
+    const newDetailHeadEl = document.createElement('div');
+    newDetailHeadEl.classList.add('history_detail-header');
+
+    const newSpanEl = document.createElement('span');
+
+    const newDetailLiEl = document.createElement('ul');
+    newDetailLiEl.classList.add('history_detail-list');
+
+    for (let j=0; j < isPast.length; j++) {
+      // history_detail-header
+      if ( i==0 ) {
+        newSpanEl.textContent = "오늘";
+        newDetailHeadEl.appendChild(newSpanEl);
+      } else if (i==1) {
+        newSpanEl.textContent = '어제';
+        newDetailHeadEl.appendChild(newSpanEl);
+      } else if (i==2) {
+        newSpanEl.textContent = `${i}일전`;
+        newDetailHeadEl.appendChild(newSpanEl);
+      } else {
+        newSpanEl.textContent = isPast[j].date;
+        newDetailHeadEl.appendChild(newSpanEl);
+      }
+
+      // history_detail-list
+      const detailLi = document.createElement('li');
+      const what = document.createElement('span');
+      const price = document.createElement('span');
+
+      what.textContent = isPast[j].history;
+      price.textContent = isPast[j].price;
+  
+      if (isPast[j].income === 'in') {
+        price.textContent = '+ ' + price.textContent;
+        price.style.color = '#FF5F00';
+      }
+  
+      detailLi.appendChild(what);
+      detailLi.appendChild(price);
+      newDetailLiEl.appendChild(detailLi); // li
+    }
+    
+    newDetailEl.appendChild(newDetailHeadEl);
+    newDetailEl.appendChild(newDetailLiEl); 
+
+    histroyDetailEl.appendChild(newDetailEl);
+
+  }
+
+
 }
 
 
-// test
-fetch('https://eulsoo.github.io/list.json')
-.then( res => {
-  //받은 애를 json화 시키고 걔를 그 다음 리턴
-  //그 다음 then에게
-  return res.json();
-})
-.then( obj => {
-  todo(obj);
-})
+// // test
+// fetch('https://eulsoo.github.io/list.json')
+// .then( res => {
+//   //받은 애를 json화 시키고 걔를 그 다음 리턴
+//   //그 다음 then에게
+//   return res.json();
+// })
+// .then( obj => {
+//   todo(obj);
+// })
 
-function todo(obj) {
-const ulEl = document.querySelector('.history_detail-list');
-for (let i=0; i < obj.length; i++) {
-  //li 만들기
-  //item vaule 가져오기
-  //li = item 넣기
-  //ul에 붙이기
-  const lili = document.createElement('li');
+// function todo(obj) {
+// const ulEl = document.querySelector('.history_detail-list');
+// for (let i=0; i < obj.length; i++) {
+//   //li 만들기
+//   //item vaule 가져오기
+//   //li = item 넣기
+//   //ul에 붙이기
+//   const lili = document.createElement('li');
 
-  const strongItem = document.createElement('strong');
-  strongItem.textContent = obj[i].item;
+//   const strongItem = document.createElement('strong');
+//   strongItem.textContent = obj[i].item;
 
-  const price = document.createElement('span');
-  price.textContent = obj[i].price;
+//   const price = document.createElement('span');
+//   price.textContent = obj[i].price;
 
-  lili.appendChild(strongItem);
-  lili.appendChild(price);
-  ulEl.appendChild(lili);
-}
+//   lili.appendChild(strongItem);
+//   lili.appendChild(price);
+//   ulEl.appendChild(lili);
+// }
 
-};
+// };

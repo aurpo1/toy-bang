@@ -318,7 +318,7 @@ header .header_icon .search img {
   font-weight: 700;
 }
 
-.history .history_detail .history_detail-header span:last-child {
+.history .history_detail .history_detail-header span:nth-child(2) {
   color: #B4B4B4;
 }
 
