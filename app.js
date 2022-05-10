@@ -2,10 +2,8 @@
 
 const swiper = new Swiper('.mySwiper', {});
 
-let itemSwiper = new Swiper('.history_sliderlist', {});
-
-
 // Chart
+
 // daily chart
 const dailyLabels = [ //x축
   '02', '04', '06', '08', '10',
@@ -101,6 +99,7 @@ let patternData1 = [{
     'price': 46000
   }]
 
+// chart 밑에 list
 const patternListEl = document.querySelector('.expense_pattern-list');
 
 for (let i=0; i<patternData1.length; i++) {
@@ -110,7 +109,7 @@ for (let i=0; i<patternData1.length; i++) {
   itemName.textContent = patternData1[i].name;
 
   const itemPrice = document.createElement('p');
-  itemPrice.textContent = patternData1[i].price;
+  itemPrice.textContent = patternData1[i].price.toLocaleString();
 
   patternLi.appendChild(itemName);
   patternLi.appendChild(itemPrice);
@@ -153,6 +152,7 @@ const doughnutChart = new Chart(
   document.getElementById('doughnutChart').getContext('2d'),
   doughnutConfig
 );
+
 
 // history detail
 
@@ -200,7 +200,7 @@ closeBtn[1].addEventListener('click', () => {
 
 fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05-4ad8-ad1b-ecdf5d06e7c6/banking.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220509%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220509T123851Z&X-Amz-Expires=86400&X-Amz-Signature=0145c6d25abbb1a75eed090778e0148190b54670f8e26913a4b1f36ce14fb559&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22banking.json%22&x-id=GetObject')
 .then( res => {
-  //받은 애를 json화 시키고 걔를 그 다음 리턴
+  // 받은 애를 json화 시키고 걔를 그 다음 리턴
   //그 다음 then에게
   return res.json();
 })
@@ -214,12 +214,13 @@ function historyData(obj) {
 
   // 오늘 날짜
   const today = new Date();
-  const tt = today.toISOString().substring(0,10);
 
   for (let i=0; i<today.getDate(); i++) {
     const tempToday = new Date();
+
+    // 오늘로부터 과거로 내려가기
     let past = new Date(tempToday.setDate(tempToday.getDate() - i));
-    past = past.toISOString().substring(0,10);
+    past = past.toISOString().substring(0,10); // YYYY-MM-DD
 
     // 오늘 기준으로 과거 내역의 객체 데이터
     let isPast = detailData.filter((date) => {
@@ -238,14 +239,15 @@ function historyData(obj) {
     newDetailLiEl.classList.add('history_detail-list');
 
     for (let j=0; j < isPast.length; j++) {
+
       // history_detail-header
-      if ( i==0 ) {
+      if (i == 0) {
         newSpanEl.textContent = "오늘";
         newDetailHeadEl.appendChild(newSpanEl);
-      } else if (i==1) {
+      } else if (i == 1) {
         newSpanEl.textContent = '어제';
         newDetailHeadEl.appendChild(newSpanEl);
-      } else if (i==2) {
+      } else if (i == 2) {
         newSpanEl.textContent = `${i}일전`;
         newDetailHeadEl.appendChild(newSpanEl);
       } else {
@@ -259,7 +261,7 @@ function historyData(obj) {
       const price = document.createElement('span');
 
       what.textContent = isPast[j].history;
-      price.textContent = isPast[j].price;
+      price.textContent = isPast[j].price.toLocaleString();
   
       if (isPast[j].income === 'in') {
         price.textContent = '+ ' + price.textContent;
@@ -268,9 +270,9 @@ function historyData(obj) {
   
       detailLi.appendChild(what);
       detailLi.appendChild(price);
-      newDetailLiEl.appendChild(detailLi); // li
+      newDetailLiEl.appendChild(detailLi); // ul > li
     }
-    
+
     newDetailEl.appendChild(newDetailHeadEl);
     newDetailEl.appendChild(newDetailLiEl); 
 
@@ -278,39 +280,5 @@ function historyData(obj) {
 
   }
 
-
 }
 
-
-// // test
-// fetch('https://eulsoo.github.io/list.json')
-// .then( res => {
-//   //받은 애를 json화 시키고 걔를 그 다음 리턴
-//   //그 다음 then에게
-//   return res.json();
-// })
-// .then( obj => {
-//   todo(obj);
-// })
-
-// function todo(obj) {
-// const ulEl = document.querySelector('.history_detail-list');
-// for (let i=0; i < obj.length; i++) {
-//   //li 만들기
-//   //item vaule 가져오기
-//   //li = item 넣기
-//   //ul에 붙이기
-//   const lili = document.createElement('li');
-
-//   const strongItem = document.createElement('strong');
-//   strongItem.textContent = obj[i].item;
-
-//   const price = document.createElement('span');
-//   price.textContent = obj[i].price;
-
-//   lili.appendChild(strongItem);
-//   lili.appendChild(price);
-//   ulEl.appendChild(lili);
-// }
-
-// };
