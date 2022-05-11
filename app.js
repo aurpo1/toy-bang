@@ -211,6 +211,16 @@ fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05
   historyData(obj);
 })
 
+// 날짜를 YYYY-MM-DD로 만드는 함수
+// timezone 문제로 대한민국 offset 설정
+function makeDate (date) {
+  let offset = date.getTimezoneOffset() * 60000; 
+  let dateOffset = new Date(date.getTime() - offset);
+  let newDate = dateOffset.toISOString().substring(0,10);
+
+  return newDate;
+}
+
 function historyData(obj) {
   const detailData = obj.bankList;
 
@@ -222,7 +232,8 @@ function historyData(obj) {
 
     // 오늘로부터 과거로 내려가기
     let past = new Date(tempToday.setDate(tempToday.getDate() - i));
-    past = past.toISOString().substring(0,10); // YYYY-MM-DD
+    past = makeDate(past);
+    console.log(i + ' : ' + past);
 
     // 오늘 기준으로 과거 내역의 객체 데이터
     let isPast = detailData.filter((date) => {
