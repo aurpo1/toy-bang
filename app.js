@@ -233,7 +233,6 @@ function historyData(obj) {
     // 오늘로부터 과거로 내려가기
     let past = new Date(tempToday.setDate(tempToday.getDate() - i));
     past = makeDate(past);
-    console.log(i + ' : ' + past);
 
     // 오늘 기준으로 과거 내역의 객체 데이터
     let isPast = detailData.filter((date) => {
@@ -241,16 +240,16 @@ function historyData(obj) {
     });
 
     const newDetailEl = document.createElement('div');
-    newDetailEl.classList.add('history_detail')
+    newDetailEl.className = 'history_detail';
 
     const newDetailHeadEl = document.createElement('div');
-    newDetailHeadEl.classList.add('history_detail-header');
+    newDetailHeadEl.className = 'history_detail-header';
 
     const newSpanEl = document.createElement('span');
     const newSumEl = document.createElement('span');
 
     const newDetailLiEl = document.createElement('ul');
-    newDetailLiEl.classList.add('history_detail-list');
+    newDetailLiEl.className = 'history_detail-list';
 
     // 하루 총 지출
     let daySum = 0;
