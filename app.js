@@ -1,6 +1,8 @@
 //swiper
 
-const swiper = new Swiper('.mySwiper', {});
+const swiper = new Swiper('.mySwiper', {
+  noSwipingSelector: "input",
+});
 
 // Chart
 
