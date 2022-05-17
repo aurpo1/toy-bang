@@ -1,5 +1,7 @@
 // Chart
 
+const today = new Date();
+
 // daily chart
 const dailyLabels = [ //x축
   '02', '04', '06', '08', '10',
@@ -148,3 +150,7 @@ const doughnutChart = new Chart(
   document.getElementById('doughnutChart').getContext('2d'),
   doughnutConfig
 );
+
+// x월 지출 패턴
+const ptnEl = document.querySelector('.expense_pattern');
+ptnEl.children[0].textContent = `${today.getMonth()+1}월 지출 패턴`;

@@ -50,11 +50,7 @@ closeBtn[1].addEventListener('click', () => {
 
 // json
 
-export function getSum(total, price) {
-  total += price;
-  return total;
-}
-
+// data fetch
 fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05-4ad8-ad1b-ecdf5d06e7c6/banking.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220517%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220517T155237Z&X-Amz-Expires=86400&X-Amz-Signature=a5003108f7773a8663cc874cc0be8324d9973aabae7d36a42c4e8fba9cb7e8a9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22banking.json%22&x-id=GetObject')
 .then( res => {
   // 받은 애를 json화 시키고 걔를 그 다음 리턴
@@ -62,10 +58,15 @@ fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05
   return res.json();
 })
 .then( obj => {
-  // console.log(obj);
   const myData = obj;
   historyData(myData);
 })
+
+// 합계 구하는 함수
+export function getSum(total, price) {
+  total += price;
+  return total;
+}
 
 // 날짜를 YYYY-MM-DD로 만드는 함수
 // timezone 문제로 대한민국 offset 설정
@@ -77,16 +78,16 @@ function makeDate (date) {
   return newDate;
 }
 
-// 오늘 날짜
-const today = new Date();
-
-  // 과거 데이터 추출하는 함수
+// 과거 데이터 추출하는 함수
 export function selectData(target, selectDate) {
   let result = target.filter((date) => {
     return date.date == selectDate;
   });
   return result;
 }
+
+// 오늘 날짜
+const today = new Date();
 
 function historyData(obj) {
   const detailData = obj.bankList;
