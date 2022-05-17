@@ -50,7 +50,12 @@ closeBtn[1].addEventListener('click', () => {
 
 // json
 
-fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05-4ad8-ad1b-ecdf5d06e7c6/banking.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220516%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220516T150119Z&X-Amz-Expires=86400&X-Amz-Signature=a03c3af7ce667742f49282cdd36055c803593a19573c42bab31084ff456e8e63&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22banking.json%22&x-id=GetObject')
+export function getSum(total, price) {
+  total += price;
+  return total;
+}
+
+fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05-4ad8-ad1b-ecdf5d06e7c6/banking.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220517%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220517T155237Z&X-Amz-Expires=86400&X-Amz-Signature=a5003108f7773a8663cc874cc0be8324d9973aabae7d36a42c4e8fba9cb7e8a9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22banking.json%22&x-id=GetObject')
 .then( res => {
   // 받은 애를 json화 시키고 걔를 그 다음 리턴
   //그 다음 then에게
@@ -133,7 +138,7 @@ function historyData(obj) {
       
       // history_detail-header-sum
       if (isPast[j].income === 'out') {
-        daySum += isPast[j].price;
+        daySum = getSum(daySum, isPast[j].price);
       }
       if (j == (isPast.length-1)) {
         newSumEl.textContent = `${daySum.toLocaleString()}원 지출`;
