@@ -63,7 +63,8 @@ fetch('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f477c8-ea05
 })
 .then( obj => {
   // console.log(obj);
-  historyData(obj);
+  const myData = obj;
+  historyData(myData);
 })
 
 // 날짜를 YYYY-MM-DD로 만드는 함수
@@ -76,19 +77,19 @@ function makeDate (date) {
   return newDate;
 }
 
-function historyData(obj) {
-  const detailData = obj.bankList;
-  
-  // 오늘 날짜
-  const today = new Date();
+// 오늘 날짜
+const today = new Date();
 
   // 과거 데이터 추출하는 함수
-  function selectData(selectDate) {
-    let result = detailData.filter((date) => {
-      return date.date == selectDate;
-    });
-    return result;
-  }
+export function selectData(target, selectDate) {
+  let result = target.filter((date) => {
+    return date.date == selectDate;
+  });
+  return result;
+}
+
+function historyData(obj) {
+  const detailData = obj.bankList;
 
   for (let i=0; i<today.getDate(); i++) {
     const tempToday = new Date();
@@ -98,7 +99,7 @@ function historyData(obj) {
     past = makeDate(past);
 
     // 오늘 기준으로 과거 내역의 객체 데이터
-    let isPast = selectData(past);
+    let isPast = selectData(detailData, past);
 
     const newDetailEl = document.createElement('div');
     newDetailEl.className = 'history_detail';
